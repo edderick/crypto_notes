@@ -1,2 +1,199 @@
-	<h2>Lecture 3</h2>
-	<p><em>Lecture: Thu 30th January 2014 &nbsp;-&nbsp; Today: Tue 18th February 2014</em></p>
+<h2>Lecture 3</h2>
+<p><em>Lecture: Thu 30th January 2014 &nbsp;-&nbsp; Today: Tue 18th February 2014</em></p>
+
+<ul>
+    <li><em>My recording missed the first fe minutes of this lecture, if anyone knows what he said, 
+    <a href="https://github.com/edderick/crypto_notes">pull requests are appreciated!</a></em></li>
+    <li>Error correcting codes go inside?</li>
+    <li>Often you want to keep the amount of traffic low so you can't tell stuff is being sent</li>
+    <li>Steganography is used to hide the fact that you are communicating at all:
+    <ul>
+        <li>Maybe you're a spy</li>
+        <li>Or a terrorist</li>
+    </ul></li>
+    <li>British civil service used to hide messages in a rock:
+    <ul>
+        <li>Bluetooth rock</li>
+        <li>All the locals knew about it</li>
+    </ul>
+</ul>
+
+<h3>Some Definitions</h3>
+<h4>Plaintext</h4>
+<p>The message that you are trying to prevent from being read. 
+We also want to guarantee correctness</p>
+
+<h4>Cipher</h4>  
+<p>Something that operates on characters, doesn't know the semantics of the message</p>
+<ul>
+    <li>Ex: Monoalphabetic substitution, caesar shift: <br />
+    QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD</li>
+    <li>When ciphers are being created, 
+        the designer doesn't need to know anything about the application domain 
+        <ul>
+            <li>This is good because you can get someone to make you a cipher without 
+                disclosing what you are going to use it for</li>
+            <li>Or you can just buy it off the shelf..</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>Codes</h4>
+<p>Rely more on the higher level semantics of what is being sent "Codewords"</p>
+<ul>
+    <li>Semaphore codes at the battle of trafalgar
+    <ul>
+        <li>England expects every man to do his duty</li>
+        <li>England is in the code book, duty is not</li>
+    </ul>
+    <li>Often codes don't actually aim to keep things secret 
+    <ul>
+        <li>Ex: French delicatessen:</li>
+        <li>Code words for goat, cheese and bread - restricted to that domain</li>
+    </ul>
+</ul>
+
+<h4>Nomenclature</h4>
+<p>A mix of both?</p>
+
+<h4>Homophones</h4>
+<ul>
+    <li>Several possible code words that mean the same thing</li>
+    <li>Can make it tricky to work out what the cipher text means</li>
+    <li>We could mitigate against frequency analysis by having many more 
+        symbols for 'e' than for 'z'</li>
+</ul>
+
+<h4>Code Book</h4> 
+<ul>
+    <li>Contain the significant words used for confidential communications</li>
+    <li>The modern day corollary is keys</li>
+</ul>
+
+<h4>Monoalphabetic Substitutions</h4>
+<ul>
+    <li>Replace a given character with a different character from a lookup table</li>
+</ul>
+<h5>Russian</h5> 
+<ul>
+    <li>Basically a substitution cipher</li>
+    <li>The court language was French</li>
+    <li>Religious language was Greek</li>
+    <li>Modern Technical words are English</li>
+    <li>Character set is derived from Greek (Cyrillic)</li>
+</ul>
+
+<h4>Polyalphabetic substitutions</h4>
+<ul>
+    <li>e.g. Enigma</li>
+    <li>The position in the text determines the substitution</li>
+</ul>
+
+<h3>A Brief History of Cryptography</h3>
+
+<h4>The First Cipher</h4>
+<center><img src="images/Egyptian.png" /></center>
+<ul>
+    <li>The very first cipher known was the crazy Egyptian one where they wanted to 
+        make it look more important</li>
+    <li>In the modern day it's done in morse code on posters</li>
+</ul>
+
+<h4>Caesar Shift</h4>
+<ul>
+    <li>The Caesar cipher is important</li>
+    <li>Replace each letter with the letter three spaces along</li>
+    <li>(Often used to refer to any number rotation)</li>
+</ul>
+<ul>
+    <li>Caesar rotations are easy to crack</li>
+    <li>Very small key space (26-1 distinct keys..)</li>
+    <li>Once you crack one letter you've cracked them all</li>
+    <li>You can have a more generic substitution by allowing a code word</li>
+</ul>
+
+<h4>Nomenclature in the Vatican</h4>
+<ul>
+    <li>Nomenclature was used by the vatican</li>
+    <li>They used to all talk in latin</li>
+    <li>And then had a load of code words that they would use</li>
+    <li>Plus homophonic substitution </li>
+    <li>Funny twiddly things to change the meaning of words, 
+        or remove their meaning completely</li>
+</ul>
+
+<h4>The Babington Plot</h4>
+<ul>
+    <li>Lead to the death of Mary Queen of Scots</li>
+    <li>Found out about her plot</li>
+    <li>Then didn't just kill her, but changed the messages</li>
+    <li>From this they discovered more of the conspirators</li>
+</ul>
+
+<h4>Vigenere Cipher</h4>
+<ul>
+    <li>Secret keyword</li>
+    <li>Can use a square (or just do it by converting letters to numbers and doing addition)</li>
+    <li>Uses multiple different letter substitutions
+    <ul>
+        <li>This is good because we can no longer see bigrams</li>
+    </ul></li>
+    <li>There is quite a large number of key words</li>
+</ul>
+<ul>
+    <li>To crack a vigenere cipher, we need to find out how long the keyword is</li>
+    <li>We can then do frequency analysis accounting for the stride</li>
+    <li>The problem is that we can crack in two stages:
+    <ul>
+        <li>Find keyword length</li>
+        <li>Work out each keyword letter in turn</li>
+    </ul>
+</ul>
+
+<h5>Kasiski Examination</h5>
+<ul>
+    <li>By chance a word may be enciphered using the same letters of the keyword</li>
+    <li>If this is the case, we can narrow the keys down to those that 
+        are factors of the distance between the repetition</li>
+</ul>
+
+<h5>Friedman test</h5>
+<ul>
+    <li>We use the index of coincidence (a sum of the frequencies of the letters)</li>
+    <li>"Spread of letter frequencies"</li>
+    <li>We set the stride to n, and see if the distribution of the frequency of 
+        letters matches what we would expect for that language</li>
+    <li>We don't care which letter is most common, but we care that the most common 
+        letter is about as common as the most common letter of the language of the text</li>
+    <li>If we find a hit, we can be pretty sure the key is that length</li>
+    <li>And then we can use frequency analysis across that key</li>
+    <li>I think some fancier maths can be used to do cleverer things... :^)</li>
+</ul>
+
+<h4>Venona Ciphers</h4>
+<ul>
+    <li>Venona ciphers used carbon paper for their one time pads</li>
+    <li>If you see two ciphertexts that are the same, then you will have a strong suspicion 
+        that keys are being reused</li>
+    <li>Try messages against each other in the attempt to find messages with the same key</li>
+    <li>When two messages have the same key, the keys will cancel out upon XORing</li>
+    <li>When the American broke the Russian cipher, it took them many years to get
+    all the information they were after out of them (rounding up spies etc.)</li>
+</ul>
+
+<h3>Solving a Simple Monoalphabetic Substitution as a Class</h3>
+<ul>
+    <li>We used frequency analysis and semantic analysis</li>
+    <li>Bigraph analysis - we often see the pattern Consonant-Vowel</li>
+</ul>
+
+<h3>Uncategorised Comments</h3>
+<ul>
+    <li>Old fashioned paper ciphers may use the minor features to convey the message, 
+        rather than the gross features: 
+    <ul><li>e.g. Duck or woman, no difference, look at where the legs are pointing</li></ul></li>
+    <br />
+    <li>In the old days GCHQ would hire lots of linguists</li>
+    <li>That and people who liked crosswords</li>
+    <br />
+    <li>Context can be very helpful</li>
