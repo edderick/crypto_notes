@@ -39,6 +39,8 @@
         <a href="https://github.com/edderick/crypto_notes">GitHub repository</a>.
         </em></p>
 
+        <div id="ToC"><h3>Skip to Lecture</h3></div>
+
         <div id="lectures"></div>
     
     <br />
@@ -59,6 +61,9 @@
                 }
                 $('#lectures').append('<div id="lecture_'+s+'"></div>');
                 $('#lecture_'+s).load('lecture_'+s+'.html');
+                $('#lecture_'+s).prepend('<a name="lecture_'+s+'" />');
+
+                $('#ToC').append('- <a href="#lecture_'+s+'">'+s+'</a> -');
             }
         }
         $( document ).ready(function() {
