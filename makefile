@@ -12,6 +12,8 @@ all:
 	markdown lecture_11.md > lecture_11.html
 	markdown lecture_12.md > lecture_12.html
 	markdown lecture_13.md > lecture_13.html
+	markdown lecture_14.md > lecture_14.html
+	markdown lecture_15.md > lecture_15.html
 better:
 	mdown --input "*.md" --output .
 clean:
