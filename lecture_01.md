@@ -16,11 +16,9 @@ Lecture 1
     [examination](https://secure.ecs.soton.ac.uk/module/1314/ELEC6032/11296/pastpapers)
     & most of the coursework
 
-\
 
 ![](images/maths_warning.gif)
 
-\
 
 ### What's Interesting?
 
@@ -159,8 +157,6 @@ anecdotes from the main concepts that need to be understood.
 -   They are quite easy to crack; Pt II Secure systems class did it
 -   You can't change the unique address unless you buy dodgy ones
 
-\
-
 -   My fare have a big issue with their RNGs
 -   Problems with RNG in embedded systems are a common problem
 -   Powered by magnetic induction from the reader
@@ -178,7 +174,6 @@ anecdotes from the main concepts that need to be understood.
 -   Most house door locks are really insecure
 -   You have to be physically there to open a physical lock, a physical
     plod could come along and physically arrest you
--   
 
 #### Taiwanese National Identity Card
 
@@ -198,26 +193,18 @@ anecdotes from the main concepts that need to be understood.
 
 #### Debian SSL
 
-OpenSSL tries to generate randomness for generating key pairs
-
-The maintainer decided he would clean up the code a bit
-
-Automated test tools including
-[Purify](http://www-03.ibm.com/software/products/en/rational-purify-family/)
-(Valgrindy type thing)
-
+-   OpenSSL tries to generate randomness for generating key pairs
+-   The maintainer decided he would clean up the code a bit
+-   Automated test tools including
+    [Purify](http://www-03.ibm.com/software/products/en/rational-purify-family/)
+    (Valgrindy type thing)
 -   Fixed the uninitialized variables
-
-This killed the entropy
-
-This resulted in only 32,000 public key pairs being used
-
-Published in a small
-[text](http://pentestmonkey.net/blog/metasploit-ssh-key-database) file
-
-Quite widely used on web servers ⇒ many are still around
-
-Chemistry still haven't fixed it
+    -   This killed the entropy
+    -   This resulted in only 32,000 public key pairs being used
+    -   Published in a small
+    [text](http://pentestmonkey.net/blog/metasploit-ssh-key-database) file
+-   Quite widely used on web servers ⇒ many are still around
+    -   Chemistry still haven't fixed it
 
 #### RSA's Be Safe library, will come up later...
 

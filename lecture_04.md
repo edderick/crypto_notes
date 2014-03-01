@@ -46,87 +46,58 @@ Lecture 4
 
 ### Enigma Machine
 
-Enigma was a particularly interesting case
-
--   Cracking it probably helped us win the war
--   Predicting U-boat movements was helpful
-
-Commercial machines
-
-Military version was strengthened by the addition of a plug board
-
-Could buy one for about £100,000
-
-They have a variable number of rotors: usually three or four
-
--   The rotors can also be shuffled
--   And there may be extra "spare" rotors
-
-This leads to around 26\^4 keys (\~18 bits..)
-
-Press a key on the keyboard, and a corresponding letter lights up
-
-Fully symmetric:
-
--   If you get two machines in the same starting state
--   Enter plaintext in one → Ciphertext
--   Enter ciphertext in the other → Plaintext
-
-Typically enter messages in as five character groups
-
--   Allows us to work out quickly where the error was
--   Worst case 5 letters wrong (Per mistake)
-
-An electromechanical device
-
-One each key press two things happen
-
-Closes a switches
-
--   Rotates one of the wheels -- When you rotate one wheel 26 times, the
-    next one rotates
--   The sets of contacts in the wheels jumble things up
-
-Mapping of contacts permutes the letters
-
-By going both ways across the wheels, decryption and encryption are the
+- Enigma was a particularly interesting case
+    -   Cracking it probably helped us win the war
+    -   Predicting U-boat movements was helpful
+- Commercial machines
+- Military version was strengthened by the addition of a plug board
+- Could buy one for about £100,000
+- They have a variable number of rotors: usually three or four
+    -   The rotors can also be shuffled
+    -   And there may be extra "spare" rotors
+- This leads to around 26\^4 keys (\~18 bits..)
+- Press a key on the keyboard, and a corresponding letter lights up
+- Fully symmetric:
+    -   If you get two machines in the same starting state
+    -   Enter plaintext in one → Ciphertext
+    -   Enter ciphertext in the other → Plaintext
+- Typically enter messages in as five character groups
+    -   Allows us to work out quickly where the error was
+    -   Worst case 5 letters wrong (Per mistake)
+- An electromechanical device
+- One each key press two things happen
+- Closes a switches
+    -   Rotates one of the wheels -- When you rotate one wheel 26 times, the
+        next one rotates
+    -   The sets of contacts in the wheels jumble things up
+- Mapping of contacts permutes the letters
+- By going both ways across the wheels, decryption and encryption are the
 same
-
-One interesting feature is that the letter cannot be enciphered to
+- One interesting feature is that the letter cannot be enciphered to
 itself
-
--   This lets you know that a message **CAN'T** be the message
--   If any letters match up, we know the candidate plaintext is wrong
--   Or, we have part of a crib, we can shift it around until it doesn't
-    match up
-
-Really not enough keys by default
-
-Just get a big group of Indians to do it
-
-The plug board was used to increase the keyspace
-
-Shuffle letters up in a monoalphabetic substitution
-
-An extra fixed permutation - e.g. Swap 's' and 't'
-
-This dramatically increases the number of keys
-
--   Just one plug multiplies the number of keys by (26 \* 25) / 2
--   Most of the complexity of the cipher actually comes from the plug
-    board
--   Without the other part though we could just use frequency analysis
-
-Summary:
-
--   Most of the key space is in the plugboard
-    -   But we can crack that easily with frequency analysis
--   The rotors on their own would be very weak
-    -   But aren't susceptible to frequency analysis
--   Together we get the best of both worlds
--   To attack this we need to factor the problem
-    -   Wheels and plugboard attacked separately
--   Thanks Poles!
+    -   This lets you know that a message **CAN'T** be the message
+    -   If any letters match up, we know the candidate plaintext is wrong
+    -   Or, we have part of a crib, we can shift it around until it doesn't
+        match up
+- Really not enough keys by default
+- Just get a big group of Indians to do it
+- The plug board was used to increase the keyspace
+- Shuffle letters up in a monoalphabetic substitution
+- An extra fixed permutation - e.g. Swap 's' and 't'
+- This dramatically increases the number of keys
+    -   Just one plug multiplies the number of keys by (26 \* 25) / 2
+    -   Most of the complexity of the cipher actually comes from the plug
+        board
+    -   Without the other part though we could just use frequency analysis
+- Summary:
+    -   Most of the key space is in the plugboard
+        -   But we can crack that easily with frequency analysis
+    -   The rotors on their own would be very weak
+        -   But aren't susceptible to frequency analysis
+    -   Together we get the best of both worlds
+    -   To attack this we need to factor the problem
+        -   Wheels and plugboard attacked separately
+    -   Thanks Poles!
 
 ### Colossus & Tunny/Fish
 

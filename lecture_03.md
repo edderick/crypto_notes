@@ -29,8 +29,9 @@ to guarantee correctness
 Something that operates on characters, doesn't know the semantics of the
 message
 
--   Ex: Monoalphabetic substitution, caesar shift: \
-     QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
+-   Ex: Monoalphabetic substitution, caesar shift: 
+    
+    >QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
 -   When ciphers are being created, the designer doesn't need to know
     anything about the application domain
     -   This is good because you can get someone to make you a cipher
@@ -183,13 +184,6 @@ message, rather than the gross features:
 
 -   e.g. Duck or woman, no difference, look at where the legs are
     pointing
-
-\
-
-In the old days GCHQ would hire lots of linguists
-
-That and people who liked crosswords
-
-\
-
-Context can be very helpful
+-   In the old days GCHQ would hire lots of linguists
+-   That and people who liked crosswords
+-   Context can be very helpful
