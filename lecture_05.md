@@ -9,144 +9,94 @@ Lecture 5
 
 ### Breaking Enigma
 
-Need to split the two parts of the cipher
-
-Small key size - brute force
-
-We can either build some machine to break it
-
--   Probably electro mechanical in those days
-
-Or try to attack in with many people
-
-The bombe was that kind of device
-
-The scale of the project could have justifiably been of the same kind of
+- Need to split the two parts of the cipher
+    - Small key size - brute force
+- We can either build some machine to break it
+    -   Probably electro mechanical in those days
+- Or try to attack in with many people
+- The bombe was that kind of device
+- The scale of the project could have justifiably been of the same kind of
 scale as war ships
-
-Codes of the day instruction
-
--   Which wheels to use today
--   Pick three of five wheels (60 possible positions)
--   Plugboard settings were also given
--   And finally, the starting positions of the chosen wheels
--   There is also another input wheel? Don't worry about it
-
-We managed to nick the wheels
-
-The Poles actually worked out the wheels themselves...
-
-If you can get the codes of the day - then it is super easy
-
--   There were a few times that some of them were stolen
--   Usually though that had to be worked out
-
-The code of the day wasn't usually used for the whole message
-
-The configuration used for that message would be sent in the master
+- Codes of the day instruction
+    -   Which wheels to use today
+    -   Pick three of five wheels (60 possible positions)
+    -   Plugboard settings were also given
+    -   And finally, the starting positions of the chosen wheels
+    -   There is also another input wheel? Don't worry about it
+- We managed to nick the wheels
+- The Poles actually worked out the wheels themselves...
+- If you can get the codes of the day - then it is super easy
+    -   There were a few times that some of them were stolen
+    -   Usually though that had to be worked out
+- The code of the day wasn't usually used for the whole message
+- The configuration used for that message would be sent in the master
 message
-
-Send the configuration to use as e.g. "DON DON"
-
--   Yay - A crib!
--   1 & 4, 2 & 5 and 3 & 6 are the same!
-
-We have to get away from the actual characters being used
-
-Instead focus on the fact we know that the letters are the same
-
-Record the morse code
-
-A chap called Huds Smilo stits?
-
--   Passed information to a variety of people (French → Polish →
-    British)
--   Gave out the instruction manual
--   Which gave out examples - which could be used to deduce the wheel
-    design
-
-In general you want to tell your clark enough to know he is doing it
+- Send the configuration to use as e.g. "DON DON"
+    -   Yay - A crib!
+    -   1 & 4, 2 & 5 and 3 & 6 are the same!
+- We have to get away from the actual characters being used
+- Instead focus on the fact we know that the letters are the same
+- Record the morse code
+- A chap called Huds Smilo stits?
+    -   Passed information to a variety of people (French → Polish →
+        British)
+    -   Gave out the instruction manual
+    -   Which gave out examples - which could be used to deduce the wheel
+        design
+- In general you want to tell your clark enough to know he is doing it
 right
-
--   But not some much that leaking it would allow someone to know
-    exactly what is going on
-
-If we have a whole set of these 'initialization codes' then we can try
+    -   But not some much that leaking it would allow someone to know
+        exactly what is going on
+- If we have a whole set of these 'initialization codes' then we can try
 to work out the master code
-
-We need to abstract away what the letters actually are
-
-Because that is hidden by the plug board
-
-The actual exploit works by finding loops
-
--   loop of length 1 - A corresponds with A
--   loop of length 2 - F to Y to F
--   with enough traffic we can fill out all 26 characters
-
-The plugboard does not affect these loops
-
-Using that information, we can build up rainbow tables for all the
+- We need to abstract away what the letters actually are
+- Because that is hidden by the plug board
+- The actual exploit works by finding loops
+    -   loop of length 1 - A corresponds with A
+    -   loop of length 2 - F to Y to F
+    -   with enough traffic we can fill out all 26 characters
+- The plugboard does not affect these loops
+- Using that information, we can build up rainbow tables for all the
 possible wheel settings
-
--   Can build a book of it
--   Very easy if you own a machine
-
-On the day:
-
--   Intercept a few messages
--   Extract the loop
--   And look up the configurations
-
-Once you have cracked the difficult cipher, you can use frequency
+    -   Can build a book of it
+    -   Very easy if you own a machine
+- On the day:
+    -   Intercept a few messages
+    -   Extract the loop
+    -   And look up the configurations
+- Once you have cracked the difficult cipher, you can use frequency
 analysis on the intermediate text
-
-Eventually the Germans realised their mistake, so stopped repeating the
+- Eventually the Germans realised their mistake, so stopped repeating the
 IV
-
-By this point, we had a pretty good idea of how to break it
-
-It's very difficult to fix a crypto system once it has been broken
-
-We knew it was possible to plant plaintext
-
--   Weather ships
--   Strategically plant mines in known locations
--   We have seen these kind of messages before, so we know what they
-    look like!
-
-The fact that the project was successful means that it is likely to get
+    - By this point, we had a pretty good idea of how to break it
+    - It's very difficult to fix a crypto system once it has been broken
+- We knew it was possible to plant plaintext
+    -   Weather ships
+    -   Strategically plant mines in known locations
+    -   We have seen these kind of messages before, so we know what they
+        look like!
+- The fact that the project was successful means that it is likely to get
 more funding in the future
-
-Another problem was keys
-
-Random three letter sequences generated by a cipher clerk
-
-But operators tend to have a set of keys that they pick from
-
--   'SSS' on Monday 'TTT' on Tuesday
--   'HIT', 'LER' or 'EVA'
--   Fist that operator!
+- Another problem was keys
+- Random three letter sequences generated by a cipher clerk
+- But operators tend to have a set of keys that they pick from
+    -   'SSS' on Monday 'TTT' on Tuesday
+    -   'HIT', 'LER' or 'EVA'
+    -   Fist that operator!
 
 ### Tangent
 
 #### Credit cards
 
-If you steal four credit cards
-
-Even better if you can steal the drivers licence and get the date of
+- If you steal four credit cards
+- Even better if you can steal the drivers licence and get the date of
 birth
-
-You have a 1 in 10 chance of guessing the pin correctly
-
--   3 goes at PIN Sentry
--   1 go at an ATM
-
-How many wallets could you lift at Jesters?
-
--   Maybe six?
-
-Although what you really want is people who have a bit more money
+- You have a 1 in 10 chance of guessing the pin correctly
+    -   3 goes at PIN Sentry
+    -   1 go at an ATM
+- How many wallets could you lift at Jesters?
+    -   Maybe six?
+- Although what you really want is people who have a bit more money
 available...
 
 #### ID Cards

@@ -135,7 +135,7 @@ desired properties, and then restricting the size
 
 #### A very small group
 
-**[[TODO: PICTURE FROM SLIDES]]**
+![](images/groups/smallest.png)
 
 - A perfectly good group
     -   Got a set and an operation, is associative, has identity and inverse
@@ -144,7 +144,7 @@ desired properties, and then restricting the size
 
 #### A slightly bigger group
 
-**[[TODO: PICTURE FROM SLIDES]]** 
+![](images/groups/slightly.png)
 
 - Addition modulo 2 
 - Perfectly good group
@@ -154,7 +154,7 @@ desired properties, and then restricting the size
 
 #### A bigger group 
 
-**[[PICTURE FROM SLIDES]]** 
+![](images/groups/bigger.png)
 
 - Not all filled in? 
 - Could it be x,y or z? 
@@ -163,7 +163,8 @@ desired properties, and then restricting the size
 
 #### Bigger still 
 
-**[[PICTURE FROM SLIDES]]** 
+![](images/groups/biggest_a.png)
+![](images/groups/biggest_b.png)
 
 - Modulo 4 addition 
 - Once again, it's fine 
