@@ -98,12 +98,10 @@ Groups
 
 #### An example
 
-  ------- ------- ------- -------
-          **e**   **a**   **b**
-  **e**   e       a       b
-  **a**   a       b       e
-  **b**   b       e       a
-  ------- ------- ------- -------
+   0    **e**   **a**   **b**
+ **e**  e       a       b
+ **a**  a       b       e
+ **b**  b       e       a
 
 Can't have the same thing in two rows:
 

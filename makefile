@@ -12,5 +12,7 @@ all:
 	markdown lecture_11.md > lecture_11.html
 	markdown lecture_12.md > lecture_12.html
 	markdown lecture_13.md > lecture_13.html
+better:
+	mdown --input "*.md" --output .
 clean:
 	rm lecture_*.html
