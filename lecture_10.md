@@ -5,3 +5,205 @@ Lecture 10
 ----------
 
 *Lecture: Mon 17th February 2014  -  Today: Tue 18th February 2014*
+
+- I think this might need reviewing with my notes present
+
+- Something about matrix multiplication (seem to have missed the first bit of the lecture)
+- Rows into columns produces a new column
+- ikth component of MN is the sum on j of M<sub>ij</sub>  and N<sub>jk</sub> 
+    - MN<sub>ik</sub> = &Sigma;<sub>j</sub> M<sub>ij</sub>N<sub>jk</sub>
+- If I then want to define MNP<sub>il</sub>
+    - &Sigma;<sub>jk</sub> M<sub>ij</sub>N<sub>jk</sub>P<sub>kl</sub>
+- And then we can bracket it in fun ways and make it equivalent to such
+- If the matrices are finite dimensional then it is a finite sum
+- If it is a finite sum then you can swap the order of the summations
+    - It is possible to write the summations closer to the series
+    - Commutative, associative etc over a field
+- If it is and infinite sum (a Hilbert space) then it might cause problems
+    - Infinite sums can't be reordered
+    - Conditionally convergent series
+        - Reordering the addition can change the order
+        - Only ever happens if the series are infinite
+- A field is something that behaves like the normal numbers
+    - Supports + - * / in the usual way
+    - e.g. the rationals
+- Rationals behave rather like the addition modulo 7..?
+- Without division, you get a ring
+- You can multiply two nonzero matrices together and get zero
+    - The example consists of: 
+        - A matrix that projects onto the first component of a two component vector
+        - A matrix that projects onto the second
+- Matrices have the same problems as multiplication on modulo non primes
+    - You get extra zeros that you don't expect
+- To check a set of matrices is a group, you must show it is closed 
+    - Under multiplication or addition
+    - Check that you've got all the elements
+- So long as the numbers behave like normal numbers (with + - &amp; *)
+    - Only thing that can go wrong is that you get loss of zeros/closure
+- Associativity happens by magic 
+- Big key lessons:
+    - Associativity is absolutely critical
+    - It means that groups are and abstraction of operations on things
+    - Really hard to take an arbitrary structure and show it is associative 
+        - for an n element group, you have to try n<sup>3</sup> inequalities
+    - Just build groups of things we know are groups 
+- One way to check something is a group is to find a faithful matrix representation of it
+    - If you can reproduce the group multiplication table using matrices
+        - Then you don't need to check associativity
+        - The table is closed by definition
+    - Associate a matrix with each element of the group and check that multiplication works the way you think it does -- then you are done.
+    - There are other ways of doing it... 
+- To demonstrate that it isn't a group is much easier
+    - Try to construct the matrices
+    - If the matrices don't quite work 
+    - Then associativity is probably broken down somewhere 
+    - Pick a counter example 
+    - The attempt to construct a faithful matrix representation will give you a good hint as to where the problem is 
+
+###Permutations!
+- Usually drawn like that (Pick Up sticks I guess)
+- Natural split in the structure of permutations
+    - You can count the number of line crossings
+    - It can be odd or even
+    - Parity is an invariant of the permutation 
+        - Wiggly versions, keep the same parity of line crossing
+        - Each extra wiggle creates a pair of line crossings
+    - Odd followed by Odd is Even
+    - Even followed by Even is Even
+    - Even followed by Odd is Odd -- defines a subgroup structure
+-  n! elements in the group (first has n, second has n - 1, etc)
+- Permutation on two objects is abelian
+    - Cyclic group with two elements -- ONLY group with two elements
+- All groups of permutations contain the subgroup of the form C<sub>2</sub>
+    - Counts whether the permutations are odd or even 
+    - Always has a subgroup, you can carry around by ignoring all features other than whether it is an odd or even number... True of all permutations
+    - Unless n = 2 the subgroup is smaller than the group
+- All even permutations stay even 
+    - Can think of group of even permutations only 
+- Can throw away everything other than the oddness or evenness 
+    - Get a group of size two
+- Can throw away all the odd permutations
+    - Because whenever you combine two odds you get and even 
+    - So even permutations on their own form a group
+- Two different ways of breaking up S<sub>3</sub> :
+    - C<sub>2</sub> and  C<sub>3</sub>
+    - S<sub>3</sub> is not the direct product of these two groups
+- To make a group of size 6
+    - Have a vector with one element 0, 1 or 2, and the other 0 or 1
+    - Add the first up modulo 3, the second up modulo 2
+    - Now a total of six elements
+- That group of 6 is not the same as the product of C<sub>2</sub> and C<sub>3</sub> of permutations
+- (1,1) is 1 like element (0, 0) is our 0 like element
+- Keep adding 1 to itself
+    - 1 + 1 = (2, 0) 
+    -  => (0, 1)
+    -  => (1, 0)
+    -  => (2, 1)
+    -  => (0, 0)
+    - Just a cyclic group of size six 
+- Direct sum construction only makes a new group if there are common factors between the elements 
+- There are two distinct groups S<sub>3</sub> and C<sub>6</sub> both of which are of size six
+    - One commutative, one not
+    - There is only one commutative group of size six
+    - (There are only two groups of size six)
+        - There are no more that two groups of any size that has just two distinct prime factors
+- We are only interested in commutative groups 
+- There is only one commutative group with a size of a given product of two primes 
+- For any number, the only way to have more than one commutative group is to have multiple identical prime factors 
+    - e.g. for size of 4 there are two commutative groups 
+        - C<sub>4</sub>
+        - C<sub>2</sub> * C<sub>2</sub>   → The Klein group
+        - The elements have different orders 
+            - You must multiply things by different amounts to get back to identity
+- Got a group with a size of prime times 4
+    - How do we tell if it is:
+        - A group of size prime x C<sub>4</sub>  
+        - A group of size prime x C<sub>2</sub> x C<sub>2</sub>
+    - Either:
+        - The group has an order or element 4 
+        - The group only has one element of order 2, the other has three
+        - In Elliptic curves this is much easier
+            - Something to do with the points where it crosses the axes 
+            - For most choices you get an elliptic curve
+            - For a few it is cryptographically vulnerable 
+                - The NSA probably know some that we don't 
+
+###Lagrange's theorem 
+- Holds for commutative and non-commutative groups 
+- Works by considering subgroups 
+- Composing groups out of their subgroups is not trivial
+    - Doing it in different ways can change commutativity
+- Recently a complete catalogue of all the minimal groups was published
+    - Groups that don't have "normal" subgroups
+- There is a monster group...
+- We have a group G and subgroup H
+    - h and j are elements of H (h != j)
+    - Then hj and jh are also elements of H
+    - Operating on the sub group
+- Can work out the cosets
+    - Pick some g that is an element of G
+    - And consider the set gH s.t gH is an element of the subgroup
+    - gH is a set of elements of the group
+    - |gH| &lt;= |H| 
+    - if gh = gj then it is possible for gH to be smaller
+    - BUT THEN ghj<sup>-1</sup> = g and hj<sup>-1</sup> some other element of the subgroup
+    - They can't possibly have inverses 
+        - g<sub>-1</sub> = h or j...
+    - Therefore the size of the cosets is identical 
+    - They can't overlap?
+- Go and look up lagrange's theorem
+    - The cosets are either completely identical or completely disjoint
+    - If there are m distinct cosets, then |G| is |subgroup|
+- This is terribly important
+- If I have a group of size P
+    - I have factors of 1 and P
+    - So there are only two subgroups, the identity, and everything else
+    - 1 * g * g * g..... eventually equals 1
+        - Can't ever get a lower power from a higher power
+    - Powers of any given elements eventually bring you back to the identity
+    - Identity generates subgroup of size zero
+    - All other generate a bigger subgroup
+- If the size is prime, then every subgroup is a generator of the whole group
+    - ANY ELEMENT GENERATES THE SAME GROUP
+
+- Note: the multiplicative notation is used to imply that it doesn't matter if they commute
+    - We usually use the multiplicative notation for groups that don't commute 
+    - If you see a +, you know that it does commute
+
+###Diffie-Hellman key exchange
+- Back to crypto!
+- We have a group G, |G| = a large prime
+- Raising to a high power is easy
+    - Just do repeated squaring
+    - g<sup>n</sup> taken O(log(n)) multiplications
+    - Always true when multiplication is cheap 
+- Alice and Bob 
+    - Plus a bad guy called Eve
+- Alice and Bob want to be communicate confidentially
+    - They need a shared secret
+    - They can use a shared secret as a key for a cryptosystem
+        - And share information securely
+- Agree Group G and a Generator g 
+    - Where |P| is prime, that's easy 
+- Alice invents and number m
+- Bob invents a number n
+    - Picking these truly random numbers is the bit you can break 
+    - They should be random and unguessable
+- Alice sends g<sup>m</sup>
+- Bob sends g<sup>n</sup>
+- They then both calculate g<sup>mn</sup>
+- Eavesdroppers cannot work out g<sup>mn</sup> based on g<sup>m</sup> and g<sup>n</sup>
+- This relies on factorisation being a slightly tricky problem!
+
+##Tangents 
+- NSA did try to get a dodgy random number into an RSA standard 
+    - NSA bribed RSA to use dual elliptic curves in be safer 
+    - Researchers said it was no good
+    - Government kept pushing it
+    - Microsoft researchers eventually found the backdoor (2005)
+    - RSA Kept on trying to push this random number generator in their products
+    - Last year (2013) RSA finally pulled the RNG
+- Its a shame because RSA used to be good guys
+    - They were heavily against the use of the clipper chip
+    - But now they have been sold on, they take bribes :)
+
