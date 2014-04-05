@@ -1,7 +1,7 @@
 Lecture 11
 ----------
 
-*Lecture: Tue 18th February 2014  -  Today: Tue 18th February 2014*
+*Lecture: Tue 18th February 2014  -  Today: Tue 5th April 2014*
 
 - Group G
 - g is an element of G
