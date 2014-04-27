@@ -2,3 +2,186 @@ Lecture 14
 ----------
 
 *Lecture: Tue 25th February 2014  -  Today: Sat 1st March 2014*
+
+- Field of rationals R
+- Pair of integers (m, n) &isin; &rationals;
+- (pm, pn) = (m, n) where p &isin; &integers;
+- i.e. m/n where m, n &isin; &rationals;
+- Can extend this field by adding a square root 
+    - (r1, r2) &isin; &rationals;(sqrt(2))
+    - Because &radic;2 &notin; &rationals;
+    - It is essential that &radic;2 isn't in the field already
+        - If it was we would end up with problems with multiplicative inverses
+        - &radic;2 is fine; &radic;3 is fine; but &radic;4 = 2, so won't do
+- We can also talk about polynomials over the rationals
+    - x<sup>2</sup> - 2 = 0 
+    - This is an irreducible polynomial over the rationals
+    - because there is no element x &isin; &rationals; s.t. x<sup>2</sup> - 2 = 0
+    - Must be irreducible
+        - x<sup>2</sup> - 4 = 0 would not work
+        - x = ±2
+        - Therefore one can factorise the polynomial
+            - By dividing it by one of it roots
+            - Recall long division -- you don't get a remainder
+            - Can divide through by the root (x + 2)
+    - x<sup>n</sup> + ... + c = 0 has at most n roots
+    - Division of polynomials on a field just works
+        - All the normal rules are there 
+- Multiplication modulo a prime produces a Cyclic group of size p - 1
+    - Take any field, finite 
+    - 7 is prime, so this will work
+    - Uses the Abelian group of order 6, can go for a more awkward one if you want
+    - No repeated prime factors of 6 
+        - Any group of size 6 is cyclic -- there will be a generator
+    - There are only 2 groups of size 6...
+    - Abelian group order 120..?
+        - 2 * 2 * 2 * 3 * 5
+        - Has a repeated prime factor
+    - Could be a number of groups:
+        - C<sub>120</sub>, C<sub>60</sub> x C<sub>2</sub> and so on
+        - Every element has order dividing 120 
+            - because of what we have seen about orders of elements
+        - because it is an Abelian group
+            -  &lt;x, y | xy = yx, x<sup>60</sup> = 1, y<sup>2</sup> = 1 &gt;
+            -  The element of highest order will have order 60 
+            -  ALL the elements will divide this
+                - If we did have &lt;x, y | xy = yx, x<sup>a</sup> = 1, y<sup>b</sup> = 1 &gt;
+                - We could rewrite that as &lt; q | q<sup>ab</sub> = 1 &gt;
+                - It is immediately obvious with an Abelian group that the orders of all the elements divide the elements of highest order
+                - If the group is cyclic, then the element has order the size of the group
+                - If it is not cyclic, then there will be some duplicated prime factors
+                    - But they must be lumped?
+                - Only common prime factors cause a problem
+
+###An Example
+- C<sub>4</sub> on the Kline group
+- Cyclic Group of order four <table><tr><th>C<sub>4</sub></th><th>0</th><th>1</th><th>2</th><th>3</th></tr><tr><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>1</td><td>1</td><td>2</td><td>3</td><td>0</td></tr><tr><td>2</td><td>2</td><td>3</td><td>0</td><td>1</td></tr><tr><td>3</td><td>3</td><td>0</td><td>1</td><td>2</td></tr></table>
+    - 0 order 1
+    - 2 order 2 
+    - 1 and 3 order 4
+    - Because it is Cyclic
+        - Order of every element divides the order of the whole group
+        - Two element are the generator
+- The Kline group <table><tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th></tr><tr><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>1</td><td>1</td><td>0</td><td>3</td><td>2</td></tr><tr><td>2</td><td>2</td><td>3</td><td>0</td><td>1</td></tr><tr><td>3</td><td>3</td><td>2</td><td>1</td><td>2</td></tr></table>
+    - Every element has order 2 
+    - Except for 0 which has order 1
+- If I have a repeating prime factor, it can be split into a vector 
+    - group order pq<sup>2</sup> 
+    - it can look like either:
+        - (pq<sup>2</sup>)
+        - (pq, q)
+            - Where the element of highest order will be a generator of one of the elements of the vector
+- The end result is:
+    - Every element has an order dividing the order of the element of highest order
+- Now we can use a polynomial trick
+    - We know the order has to divide the size of the group 
+    - The size of the group in this case is the prime p - 1 
+    - Every element therefore must have the property that x<sup>p - 1</sup> = 1
+        - Or x<sup>p</sup> - p = 0  
+    - A field of size p, all elements must have and order than divides p - 1 
+    - Furthermore, if the group wasn't cyclic, every element would have to satisfy x<sup>n - 1<sup> = 1 where n divides p
+    - This seems to be getting unbearably painful...
+- It isn't possible for the group of multiplication of a field to be non-cyclic
+    - It is <strong>ALWAYS</strong> cyclic (even when you don't think it will be)
+    - That means there is always at least one generator g 
+        - s.t. g, g<sup>2</sup>, ..., g<sup>p -1</sup> constitutes all the elements of the group
+        - This bound is satisfied by the case where there is only one element
+- Following from La Granges theorem
+    - x<sup>p - 1</sup> = 1 holds for every element of the multiplicative group 
+    - x<sup>p - x</sup> = 0 holds for every element of the field
+        - because we added the root x = 0
+- Now for the excitement
+- &rationals;(&radic;-1) works just the same
+    - Root of the polynomial x<sup>2</sup> + 1 = 0
+    - And this is why complex numbers work!
+        - Because there is no root, we can add the number in without breaking everything
+- Ordering doesn't reeaally work for complex numbers
+    - you can on the moduli but that isn't really complex numbers
+
+##The Binaries
+- I have the binaries...
+- I want to make a bigger field out of the binaries
+- First, find a polynomial that doesn't have a root
+    - The linear polynomials are
+        - x  : root = 0
+        - x + 1  : root = 1 
+        - Linear polynomials ALWAYS have roots
+    - The quadratic polynomials 
+        - x ( x + 1 ) = 0 Divisible by both 0 and 1
+        - So add 1 
+        - x (x + 1) + 1 = 0 
+            - Can be written as x<sup>2</sup> + x + 1 = 0
+            - Has no root
+- We can add a new number!
+    - Shall be known as "X" 
+    - Has the property that X<sup>2</sup> + X + 1 = 0
+    - Just like adding &radic;2, we can add this number, without breaking anything!
+- Addition <table><tr><th>+</th><th>0</th><th>1</th><th>X</th><th>1+X</th></tr><tr><td>0</td><td>0</td><td>1</td><td>X</td><td>1+X</td></tr><tr><td>1</td><td>1</td><td>0</td><td>1+X</td><td>X</td></tr><tr><td>X</td><td>X</td><td>1+X</td><td>0</td><td>1</td></tr><tr><td>1+X</td><td>1+X</td><td>X</td><td>1</td><td>0</td></tr></table>
+    - Klein group C<sub>2</sub> + C<sub>2</sub>
+    - Addition is no cyclic anymore
+- Multiplication <table><tr><th>*</th><th>1</th><th>X</th><th>1+X</th></tr><tr><td>1</td><td>1</td><td>X</td><td>1+X</td></tr><tr><td>X</td><td>X</td><td>1+X</td><td>1</td></tr><tr><td>1+X</td><td>1+X</td><td>1</td><td>0</td></tr></table>
+    - Chuck the zeros away
+- These are just two element vectors, but for some reason we write it like that
+    - Could also be written as 
+        - 0 =&gt; (0, 0) 
+        - 1 =&gt; (0, 1)
+        - X =&gt; (1, 0)
+        - 1+X =&gt; (1, 1)
+- Because it's binary, -1 and 1 are the same thing!
+- This is interesting because
+    - All of the encryption we have learned about so far 
+    - Uses large fields of modulus a large prime
+    - Pretty easy on a computer
+    - In hardware, you would much rather work with bit vectors
+- Hardware guys, love large fields of size a power of 2
+- Software guys, love large fields of size a large prime number
+    - A bit more secure
+
+###An Irreducible Cubic Polynomial 
+- Require no roots
+    - Thus we need a plus 1, otherwise zero would be a root
+    - Must have an odd number of terms, because then they will add up to 1
+        - Can't have x<sup>3</sup> + x<sup>2</sup> + x + 1 = 0
+        - Because that gives 1 + 1 + 1 + 1, which is zero
+- So we can have:
+    - x<sup>3</sup> + x<sup>2</sup> + 1
+    - x<sup>3</sup> + x + 1
+- Could also build them up out of their factors:
+    - x<sup>3</sup>; x<sup>2</sup>(x+1); x(x+1)<sup>2</sup>; (x+1)<sup>3</sup> -- Ruled out because no one on the end?
+    - x(x<sup>2</sup> + x + 1) ; (x+1) (x<sup>2</sup> + x + 1)
+- Every reducible prolynomial of order 3, over the binaries, has x or x+1 as a factor
+- Both of the examples above are irreducible
+- Can make a field of any size, 2<sup>n</sup>, by picking an irriducible polynomial
+- For a big multiplicative group we might have:
+    - 1, x, 1+x. x<sup>2</sup>, 1+x<sup>2</sup>, 1+x+x<sup>2</sup>, x+x<sup>2</sup> 
+    - Can build up the whole group by taking powers of x
+    - 7 elements - prime order: so every element but identity is a generator
+- x is a generator of the group...
+    - polynomial is irreducible, and primitive
+    - Primitive means it it irriducable, and is a generator...
+- Can write it down as powers of 2:
+    - 2 gives 1
+    - 2<sup>2</sup> gives 3
+    - 2<sup>3</sup> gives 7
+    - 2<sup>4</sup> gives 15 
+        - As 15 has no repeated prime factors, it is cyclic!
+- A group of size 15 is not of prime order
+    - So not all of its elements must be generators
+    - Additive group of size 15 the element 3 and 5 are not generators
+    - But 1 is
+- <strong>SHIT</strong>, he said something about exam questions
+    - I will really need to review this stuff! 
+- There is nothing magic about 2 
+    - But people tend to use either 2 or a large prime
+
+##Tangents 
+###Cipher Conspiracy
+- There is some security problem in something
+    - Problem in AES CBC
+    - Switched to RC4 to mitigate the problem
+    - Then RC4 broke
+    - Because no one has any faith in PKI 
+        - Americans got all of the keys
+    - Everyone should use perfect forward secrecy -- Diffie Hellman key exchange
+    - Now it turns out that code for DH key exchange is broken
+    - Bugs force people to move to more vulnerable protocols
