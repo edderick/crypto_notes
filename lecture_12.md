@@ -1,4 +1,132 @@
 Lecture 12
 ----------
 
-*Lecture: Thu 20th February 2014  -  Today: Tue 18th February 2014*
+*Lecture: Thu 20th February 2014  -  Today: Tue 18th February 2014*
+
+- Today we will finally reach the punchline
+    - Finish off looking at groups
+    - Move on to fields
+    - By this lecture we have been exposed to all the notation
+- Group is a set plus a binary operation
+    - Well defined binary operator 
+        - i.e it takes two elements of the set and returns a third
+    - Closed binary operator
+        - s<sub>1</sub>, s<sub>2</sub>, s<sub>3</sub> &isin; S
+        - s<sub>1</sub> &middot;  s<sub>1</sub> = s<sub>3</sub>
+- Equivalence classes  
+- Two classic ways of making groups
+    1. Start of with a group and collect sets in classes. 
+        - Each of which is an element of the new group
+        - Must be well defined
+    2. Throw away elements of the set, that you don't need
+        - e.g. for multiplication, throw away zero
+        - Takes something that isn't a group and turns it into a group
+        - We do this with the modular integer addition
+        - Sometimes you can just throw away zero
+            - Other times you have to throw away other numbers too
+    3. You can also use the powers of a generator
+        - If you are fancy, you can use powers of multiple elements h, g 
+- Proving associativity is hard
+    - Checking by hand is very time consuming
+    - And a random guess is probably not associative
+- You are much better off starting from something you know to be associative
+    - Typically addition or multiplication
+        - On some kind of numbers
+        - On some kind of matrices
+        - Or some kind of operations on things, e.g. Permutations
+- [https://www.dropbox.com/s/qie22e0uo9boe0c/Screenshot%202014-04-27%2016.33.40.png]
+    - We know it is associative, it's Modulo 7 multiplication
+    - We already checked that it is well defined
+        - Any representative of a remainder class times any other representative of another remainder class gives a unique resulting remainder class
+    - But it isn't a group, so we fix it by throwing away the rows and columns that can't have an inverse
+    - We could then check that the group does indeed now have inverses
+        - In this case it will always be true
+        - Because it is prime. 
+        - Can pick out a generator of the group and check all of them
+    - It is associative, because of the other stuff that we did before
+- [https://www.dropbox.com/s/n8npuj35o58cmnz/Screenshot%202014-04-27%2016.42.19.png]
+    - We know that zero doesn't have an inverse -- so we throw away all the zeros. 
+    - We have to throw away all the zeros because they can't have inverses 
+        - In this example, the elements 2 and 3
+    - Then we need to get rid of the elements that produce the things that we got rid of
+        - So we need to get of 4
+    - What we have left is a perfectly good group with two elements
+    - It is a group we have seen before
+- Multiplication modulo a prime gives you a group of size P - 1
+- Multiplication modulo anything gives you a group
+    - But it is smaller than you would expect
+- To get a group, we had to:
+    - Delete any elements that shared a factor with the size 
+    - Except for the identity
+    - The reason is that they end up making zeros
+- If we do multiplication modulo a non-prime
+    - The group we get is the one made up of: 
+    - The identity, 1
+    - All the other numbers that don't share a factor with the modulus
+    - Might be smaller than you would think
+- The product of two large primes, p q 
+    - The group we get will be big
+    - Not all the numbers up to pq - 1 
+        - because some numbers will have factors in common with pq 
+        - e.g. 2p
+    - How many of those numbers get thrown away is the key secret to RSA
+        - Pick two large primes
+        - Multiply them together 
+        - Tell people pq
+        - Don't tell them the size of the group pq
+        - The only way to work this out is to factorise into p and q separately, which is hard 
+        - The answer is basically (p - 1)(q - 1)
+    - Working out the size of the group is critically important
+- Making groups bigger
+    - Use anything reasonable in numbers
+        - Integers 
+        - Rationals (i.e. pairs of integers a, b s.t. a/b = na/nb)
+        - Surds (i.e. n<sup>th</sup> roots)
+        - Algebraic numbers (i.e. anything that is a root of a polynomial -- quintic polynomials don't have to be surds)
+        - Real numbers (i.e. convergent series, pi &amp; e) 
+        - Complex numbers (i.e. Reals + sqrt(-1))
+        - Matrices (Typically over a field, automatically associative)
+        - Direct Products g.h (Or direct sums)
+    - Matrices to make bigger
+        - Interesting because it makes them non-commutative
+    - Direct Products 
+        - Symmetric kayle table
+- [https://www.dropbox.com/s/7wgge2hu79zf81g/Screenshot%202014-04-27%2017.20.17.png]
+    - Addition modulo 6, displayed in a funny order 
+    - Turns out these are always cyclic 
+    - A whacky permutation 
+        - Has the property of that we can easily apply the group operation 
+        - MAGIC 
+            - Used in Diffie Hellman, El Gammal, and Eliptic curve Crypto
+            - We've taken the group with a simple structure, and permuted it in a funny way to allow fast multiplication
+    - We can now pick an element of the group that is a generator
+        - In this case we use 5
+    - Public info:  g = 5 || Multiplication mod 7
+    - Can apply group operator many times
+    - Multiplicative:
+        - n &middot; g = g<sup>n</sup> 
+        - We can work out n &middot; g very quickly 
+            - g<sup>16</sup> = g<sup>2<sup>2<sup>2<sup>2</sup></sup></sup></sup>
+            - O(log n) group multiplications
+        - It is very difficult to to the inverse 
+    - Additive: 
+        - n &middot; g = ng mod p
+        - Unwinding the group operation on the additive group is trivial
+        - We just divide it 
+    - Typically we tell everyone g, G, and g<sup>n</sup>
+    - The secret is n
+    - This is exactly Diffie Hellman key exchange
+        - To be reasonably reliable you need at least 2048 bits 
+            - Preferably 4096   
+
+### Diffie Hellman 
+- Publish g 
+- Alice picks a random a and sends g<sup>a</sup>
+- Bob picks a random b and sends g<sup>b</sup>
+- Alice computes g<sup>b<sup>a</sup></sup>
+- Bob computes g<sup>a<sup>b</sup></sup>
+- The middle man has no way of working out g<sup>ab</sup>
+- Most of the time DH isn't used
+    - If you do, you have perfect forward secrecy
+    - The ephemeral keys are impossible to get hold of
+- Of course there are times when the NSA just gets given everything anyway...
