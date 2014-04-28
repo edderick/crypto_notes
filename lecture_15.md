@@ -105,7 +105,7 @@ Lecture 15
     - x<sup>5</sup> = x&middot;x<sup>4</sup>= x(x<sup>3</sup> + 1) = x<sup>4</sup> + 1 = x<sup>3</sup> + 1 + x != 1
         - NOTE: x<sup>4</sup> + x<sup>3</sup> + 1 = 0 implies x<sup>4</sup> = x<sup>3</sup> + 1 because for binary + = -
     - Thus x<sup>5</sup> is not one!
-- So: x<sup>4</sup> + x<sup>3<sup> + 1 = 0
+- So: x<sup>4</sup> + x<sup>3</sup> + 1 = 0
     - Is irreducible
     - Is primitive
         - i.e. x is a generator
@@ -127,4 +127,4 @@ Lecture 15
 ##There is now a diagram, I'll copy it later...
 
 - x<sup>4</sup> = x<sup>3</sup>, so we have to shift in a one when it plops out the end
--
+
