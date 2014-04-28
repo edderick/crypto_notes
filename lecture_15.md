@@ -127,4 +127,15 @@ Lecture 15
 ##There is now a diagram, I'll copy it later...
 
 - x<sup>4</sup> = x<sup>3</sup>, so we have to shift in a one when it plops out the end
+- Starting from any nonzero state, all states will be explored before returning to the original state
 
+###Fibonacci Form
+- Ripples in the opposite direction
+- Is what we did in Wireless Networks
+- But this isn't great for VLSI
+    - It requires more gate delays 
+
+###Berlekamp-Massey
+- Allows you to work out what the configuration of taps of the LFSR are
+- Allows cracking of codes
+- LFSRs are widely deployed -- but hopelessly insecure...
