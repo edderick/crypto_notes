@@ -1,5 +1,166 @@
 Lecture 24
 ----------
 
-*Lecture: Tues 25th March 2014  -  Today: Sun 27th April 2014*
+*Lecture: Tues 25th March 2014  -  Today: Thu 15th May 2014*
 
+- Irreducible polynomials 
+- x<sup>4</sup> + x<sup>2</sup> + 1 = 0
+    - Odd number of terms, implies x = 1 not a root 
+    - Has a 1, implies x = 0 not a root
+    - Thus it has no linear factors 
+        - Only linear options 1 and 0. 
+    - Does it have any quadratic factors? 
+        - Only irreducible polynomial of degree 2 is:
+            - x<sup>2</sup> + x + 1
+        - (x<sup>2</sup> + x + 1)<sup>2</sup> = (x<sup>2</sup>)<sup>2</sup> + x<sup>2</sup> + 1<sup>2</sup> + 2x<sup>2</sup>x + 2x1 + 2x1
+        - 2 = 0, so this leaves us with x<sup>4</sup> + x<sup>2</sup> + 1
+    - If I have a field of characteristic n
+        - 1 + 1 + 1 + ... + 1 = 0 (n times)
+        - If we have some polynomial p(x)
+        - Then p<sup>n</sup>(n) is the same as evaluating the polynomial at x<sup>n</sup>
+        - This is a result of the binomial theorem 
+            - All the terms other than the leading term disappear
+- Take a field of characteristic n, F
+    - And replace each element with its nth power: x -&gt; x<sup>n</sup>
+    - You get a new field 
+    - Because multiplication still words:
+        - (xy)<sup>n</sup> = x<sup>n</sup>y<sup>n</sup>
+        - (x + y)<sup>n</sup> = x<sup>n</sup> + y<sup>n</sup>
+            - because all the cross terms have an n in them, which is zero
+    - This is called the Frobenius Endomorphism 
+    - Don't worry, this isn't actually that important right now...
+- Polynomials over the binaries
+    - If polynomials is of the form (some other polynomial of x)<sup>2</sup>
+    - Then it is not irreducible
+    - P(x) = Q(x<sup>2</sup>) == (Q(x))<sup>2</sup>
+    - Any polynomial that contains only even powers of x is reducible...
+- Quartic polynomials with no linear factors:
+    - x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x + 1
+    - x<sup>4</sup> + x<sup>3</sup> + 1
+    - x<sup>4</sup> + x + 1
+    - x<sup>4</sup> + x<sup>2</sup> + 1
+        - The last one has a quadratic factor, so is reducible
+- You often want it to be primitive as well
+    - Primitive -- Generates the whole of the multiplicative group
+    - In this case, x must have order 15
+    - e.g. x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x + 1 
+        - we have: x
+        - x<sup>2</sup>
+        - x<sup>3</sup>
+        - x<sup>4</sup> = x<sup>3</sup> + x<sup>2</sup> + x + 1 Because with booleans signs don't matter
+        - x<sup>5</sup> = x(x<sup>4</sup>) 
+            - = x(x<sup>3</sup> + x<sup>2</sup> + x + 1) 
+            - = x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x
+            - = x<sup>3</sup> + x<sup>2</sup> + x + 1 + x<sup>3</sup> + x<sup>2</sup> + x
+            - = 1 (Oh no! The identity!)
+        - This polynomial is not primitive!
+        - Group of size 15
+            - Multiplicative field is cyclic
+            - Order of the group must divide that of the group:
+                - 1, 3, 5, or 15  
+                - The group above has order 5, which is a legit group.
+    - If we can get past 5, then we are fine :D
+    - e.g. x<sup>4</sup> + x + 1
+        - we have: x
+        - x<sup>2</sup>
+        - x<sup>3</sup>
+        - x<sup>4</sup> = x + 1
+        - x<sup>5</sup> = x(x<sup>4</sup>) = x(x + 1) = x<sup>2</sup> + x 
+        - We could continue, but we know it will get to 15, because the order must divide the group
+        - Woo x is a generator! As such, it is primitive.
+- x<sup>4</sup> + x + 1 = 0
+    - Let's consider another element of the field: y
+    - y = x<sup>-1</sup> -- is the inverse of x
+    - y<sup>-4</sup> + y<sup>-1</sup> + 1 = 0
+    - multiply both sides by y<sup>4</sup>
+    - y<sup>4</sup>(y<sup>-4</sup> + y<sup>-1</sup> + 1) = y<sup>4</sup>0
+    - 1 + y<sup>3</sup> + y<sup>4</sup> = 0
+    - which we can write as  y<sup>4</sup> + y<sup>3</sup> + 1 = 0
+    - Polynomials come in pair
+        - This is a pair of primitive polynomials
+        - If one is primitive, so is the other
+        - If one has order 15, the other has order 15
+        - Basically just goes round the other way...
+- Any polynomial that is not symmetrical, has an inverse polynomial. 
+- This looks like a pretty good way to generate some random numbers...
+- ![](images/GalloisMode.png)
+    - Probably don't need a clock on the diagram...
+- LFSR Time
+    - Build a shift register as the multiplier
+    - Four elements in the example 
+    - Number the different blocks to be 1, x, x<sup>2</sup>, and x<sup>3</sup>
+    - Multiplying by x, corresponds to clocking the shift register
+    - If our register is set to one, and we clock it, it becomes x
+        - Clock it again, and it becomes x<sup>2</sup>
+        - And again, it becomes x<sup>3</sup>
+    - When we clock out the end, we have to respect the polynomial
+        - In our example we pick 1 + x + x<sup>4</sup> = 0
+        - So when we clock out the end, we generate and x<sup>4</sup>
+        - which means we have to subtract (1 + x)
+            - To satisfy the law of the field
+            - THIS IS BECAUSE:
+                - We don't have to carry x^4 with us
+                - Whenever we see x^4, we can add or subtract (x + 1)
+                - because of course x<sup>4</sup> = 1 + x, by simple rearrangement
+            - So when we carry out x^4, we add that back in to x and 1
+    - If we simply clock out the x^4 and into the 1 we get the polynomial 1+ x<sup>4</sup>
+        - That polynomial wasn't very interesting, because it isn't irreducible
+        - We want to also shift in the x
+        - We do this using and XOR which between 1 and x 
+    - We always have a clock out at the top and a clock in at 1
+        - The XORs fill in the middle bit of the polynomial
+    - For our example, we could have placed the XOR before x<sup>3</sup> to clock in an x<sup>3</sup>
+        - This is also irreducible, and clocks in the opposite direction 
+        - (We showed above that these two polynomials are inverses)
+    - Even powers of two are a warning sign...
+- To use an LFSR to encrypt a message
+    - Take the stream of bits that comes out of the end
+    - And XOR this with the bits of your plaintext (bit serialised)
+    - To decrypt, take the same bits from the LFSR and XOR with the ciphertext
+    - It's a stream cipher
+- You can easily get long sequences you can get
+    - Variety of different polynomials
+    - Variety of different initialisation states
+    - DON'T INIT TO ALL ZEROS!
+- Some crap about optical cables...
+- Use a best guess at the plain text, in hope to get the key stream
+    - Standard headers for messages are a good place to start
+    - Use a lot of guesses! 10<sup>12</sup> guesses maybe
+        - You have a big computer after all!
+    - Out the end pop 10^12 guesses for the LFSR output.
+    - There is a very fast algorithm, that when given 2<sup>n</sup>bits can determine the configuration of an nbit LFSR 
+    - n = 48 on MyFare classic...
+    - Ah the fables Berlcamp-massey algorithm...
+    - BM is so fast, that you can do many many guesses
+- Denis's classic anti LFSR rant
+- New tricks are always appearing to analyse fields over the binaries.
+    - This includes AES... :(
+- Never use the same bitstream twice you silly billy
+- Using a dodgy stream is also a bit of a problem
+- What we have seen so far is a Gallois Form LFSR
+    - These fields we have been looking at are called Gallois Fields (GF)
+- There is also the Fibonacci version
+    - Related to the Fibonacci sequence (recall from your childhood)
+    - We take a weighted sum of early elements of the series to get the next element in the series
+    - We can move the XOR gates around, without changing the output
+    - Have to put delays in
+        - Like building a balances pipeline..?
+    - Can keep doing this 
+    - We end up with the opposite taps from what you might expect
+        - Polynomial is 1 + x<sup>3</sup> + x<sup>4</sup>  = 0
+    - By sliding down, we reverse the position of the taps
+    - BUT THE COUNT IN THE SAME DIRECTION...
+    - So when switching from Gallois to Fibonacci, you reverse the polynomial to get the same output
+        - Otherwise you will count backwards 
+- ![](images/GalloisToFib.png)
+- This is now a linear recurrence
+- At time t=0 output is S<sub>0</sub>
+- At time t=1 output is S<sub>1</sub>
+- At time t=2 output is S<sub>2</sub>
+- At time t=3 output is S<sub>3</sub>
+- This is a different sequence from before...
+- Using low order recurrence to make it simple
+- So in general   
+    - S<sub>n</sub> = S<sub>n-4</sub> + S<sub>n-3</sub> For n &ge; 4
+    - e.g. S<sub>4</sub> = S<sub>0</sub> + S<sub>1</sub>
+- It isn't the Fibonacci recurrence, but it is a linear recurrence 
