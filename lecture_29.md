@@ -136,7 +136,7 @@ Lecture 29
 - Until the leaks, this was a really good way of doing surveillance
 - Sabotaging random number generators is a common way to break cryptosystems
 - You can do it on Intel or sommink
-- <img src="images/xkcd.png" width=400px />
+- <img src="images/XKCD.png" width=400px />
 - <img src="images/Dilbert.png" width=400px />
 - For the customers using RSA's B-Secure, this was the reality...
     - Except it generated a sequence that was analysable by NSA
