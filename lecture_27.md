@@ -101,6 +101,8 @@ Lecture 27
     - To get a point to soem power 
 - Can create point (x, y)<sup>n</sup> very quickly 
 - Doubling and such
+- Max's derivation:
+    - <img src="images/l27/K.png" width=400px />
 
 ##Summary
 - The group operation is a little harder
