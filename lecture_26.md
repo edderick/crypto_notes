@@ -6,6 +6,7 @@ Lecture 26
 - Kazakhstan is great
 - The Wikipedia page on Elliptic curves is pretty good! 
 - We're going to start with a fun example...
+- <img src="images/Cannonball.png" width=550px />
 - Cannonballs
     - They come in flat square trays of y*y = y<sup>2</sup> 
     - And you stack them in pyramids 
