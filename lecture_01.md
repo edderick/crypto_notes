@@ -81,7 +81,7 @@ just a small taste!
 -   Generation of pseudo random bit streams (LFSRs)
 -   One of the biggest attacks on cryptosystems today
 -   Very easy to break
--   Still widely used (e.g. MyFare cards are particularly bad)
+-   Still widely used (e.g. MiFare cards are particularly bad)
 -   Some RNGs are so bad that once you know one number, you can predict
     more in the series
 -   There are problems with some processors (Intel...)
