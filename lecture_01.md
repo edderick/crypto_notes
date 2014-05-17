@@ -264,7 +264,7 @@ anecdotes from the main concepts that need to be understood.
 
 #### WEP
 
--   Wired Equivalency Protocol
+-   Wired Equivalent Privacy
 -   This is true if you assume the attacker has access to the wire
 -   WEP broke because RC4 was used incorrectly
 -   Problems with initialisation vectors
