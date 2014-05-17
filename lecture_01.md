@@ -150,20 +150,20 @@ anecdotes from the main concepts that need to be understood.
 
 #### Smart Cards
 
--   MyFare cards used by the university
+-   MiFare cards used by the university
 -   Consists of two parts
     -   Unique ID -- lets you into buildings
     -   Encrypted data -- Gives you pass for gym & bus (etc.)
 -   They are quite easy to crack; Pt II Secure systems class did it
 -   You can't change the unique address unless you buy dodgy ones
 
--   My fare have a big issue with their RNGs
+-   MiFare have a big issue with their RNGs
 -   Problems with RNG in embedded systems are a common problem
 -   Powered by magnetic induction from the reader
 -   Don't gather much entropy
 -   Random numbers aren't all that random
 -   Power them up too fast and you'll get one of three random numbers
--   MyFare Classic has been replaced by MyFare DESfire
+-   MiFare Classic has been replaced by MiFare DESfire
 
 #### Lock Picking
 
