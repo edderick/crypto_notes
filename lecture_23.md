@@ -125,7 +125,7 @@ Lecture 23
 - He probably has some mafia bosses who hate him now
 
 ####ID Cards
-- Hey everyone here's Denis' ID number 1 1187481
+- Hey everyone here's Denis' ID number 1 118***1
 - He fuzzed his key though
     - Actually went in with paint and removed the dimples!
 - Denis thinks his key is pretty damn secure...
